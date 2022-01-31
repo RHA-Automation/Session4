@@ -1,10 +1,14 @@
 # Session 4
 
-### Motivation
-`ansible-navigator` is a textual user interface (TUI) available to Ansible Automation Platform subscribers and has been introduced with Ansible Automation Platform 2 as the primary interface for creating and testing ansible automation.
+## Motivation
+
+`ansible-navigator` is a textual user interface (TUI) available to Ansible Automation Platform (AAP) subscribers and has been introduced with Ansible Automation Platform 2 as the primary interface for creating and testing ansible automation.
 
 `ansible-navigator` also functions as a drop-in replacement for `ansible-playbook`, among other `ansible-*` utilities, and is the standard way of executing automation moving into Ansible Automation Platform 2.
 
+## Installation
+
+If you are not getting `ansible-navigator` from your AAP subscription, you can install it using `pip` (adjust to suit your needs):
 
 ~~~bash
 python3.9 -m venv rha-navigator
@@ -12,5 +16,54 @@ pip install --upgrade pip
 pip install 'ansible-navigator'
 ~~~
 
-[https://github.com/ansible/ansible-navigator](https://github.com/ansible/ansible-navigator)
+## Usage
 
+### Old Syntax / New Syntax
+
+| Old | New (interactive or `-m stdout`) |
+| --- | --- |
+| `ansible-playbook` | `ansible-navigator run` |
+| `ansible-doc` | `ansible-navigator doc` |
+| `ansible-config` | `ansible-navigator config` |
+| `ansible-inventory` | `ansible-navigator inventory` |
+
+#### Examples
+
+~~~bash
+ansible-navigator run ping.yml -i inventory -m stdout
+ansible-navigator doc user -m stdout
+ansible-navigator inventory -i inventory -m stdout --list
+~~~
+
+### Explore the TUI
+
+Stuff we know already:
+~~~bash
+:config
+:inventory
+:doc ( :{{ examples }} )
+:open
+:run -i <inventory> ( :doc in task )
+~~~
+
+New options:
+~~~bash
+:images
+:collections
+:replay
+~~~
+
+## Get Execution Environments
+
+[Container images at catalog.redhat.com](https://catalog.redhat.com/software/containers/search?q=execution%20environment&p=1&product_listings_names=Red%20Hat%20Ansible%20Automation%20Platform&build_categories_list=Automation%20Execution%20Environment)
+
+~~~bash
+podman login
+podman pull registry.redhat.io/ansible-automation-platform-21/ee-29-rhel8
+podman pull registry.redhat.io/ansible-automation-platform-21/ee-minimal-rhel8
+podman pull registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8
+~~~
+
+## Resources
+
+- [Ansible Navigator Creator Guide](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html-single/ansible_navigator_creator_guide/index)
