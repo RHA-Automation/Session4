@@ -12,8 +12,9 @@ If you are not getting `ansible-navigator` from your AAP subscription, you can i
 
 ~~~bash
 python3.9 -m venv rha-navigator
+source rha-navigator/bin/activate
 pip install --upgrade pip
-pip install 'ansible-navigator'
+pip install ansible-navigator
 ~~~
 
 ## Usage
