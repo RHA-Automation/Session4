@@ -80,6 +80,11 @@ What is a `run` doing:
 ansible-navigator run ping.yml -i inventory --ll debug -m stdout
 ~~~
 
+Bonus points:
+~~~bash
+ansible-navigator run usecase3_rootcontainers_networked.yml -i inventory --ll debug --vault-password-file /home/ansible/gitignored_secret --eei quay.io/kvegh/podautee -e @/home/ansible/vault-auth.yml -m stdout -u ansible 
+~~~
+
 ## Resources
 
 - [Ansible Navigator Creator Guide](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html-single/ansible_navigator_creator_guide/index)
