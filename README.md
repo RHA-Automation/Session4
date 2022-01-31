@@ -39,6 +39,7 @@ ansible-navigator inventory -i inventory -m stdout --list
 ### Explore the TUI
 
 Stuff we know already:
+
 ~~~bash
 :config
 :inventory
@@ -48,6 +49,7 @@ Stuff we know already:
 ~~~
 
 New options:
+
 ~~~bash
 :images
 :collections
@@ -71,16 +73,18 @@ podman pull registry.redhat.io/ansible-automation-platform-21/ee-minimal-rhel8
 podman pull registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8
 ~~~
 
-### Usage
+### Enable Usage
 
 In `ansible-navigator.yml` set `enabled: true` in `execution-environment` section.
 
 What is a `run` doing:
+
 ~~~bash
 ansible-navigator run ping.yml -i inventory --ll debug -m stdout
 ~~~
 
 Bonus points:
+
 ~~~bash
 ansible-navigator run usecase3_rootcontainers_networked.yml -i inventory --ll debug --vault-password-file /home/ansible/gitignored_secret --eei quay.io/kvegh/podautee -e @/home/ansible/vault-auth.yml -m stdout -u ansible 
 ~~~
