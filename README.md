@@ -53,7 +53,13 @@ New options:
 :replay
 ~~~
 
-## Get Execution Environments
+### Configuration
+
+`ansible-navigator.yml` is the config file present in each project that will determine how automation is created and executed with `ansible-navigator`.
+
+## Execution Environments
+
+### Download
 
 [Container images at catalog.redhat.com](https://catalog.redhat.com/software/containers/search?q=execution%20environment&p=1&product_listings_names=Red%20Hat%20Ansible%20Automation%20Platform&build_categories_list=Automation%20Execution%20Environment)
 
@@ -62,6 +68,15 @@ podman login
 podman pull registry.redhat.io/ansible-automation-platform-21/ee-29-rhel8
 podman pull registry.redhat.io/ansible-automation-platform-21/ee-minimal-rhel8
 podman pull registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8
+~~~
+
+### Usage
+
+In `ansible-navigator.yml` set `enabled: true` in `execution-environment` section.
+
+What is a `run` doing:
+~~~bash
+ansible-navigator run ping.yml -i inventory --ll debug -m stdout
 ~~~
 
 ## Resources

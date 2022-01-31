@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: false
+  
+  tasks:
+    - name: ping all the things
+      ping:
+      
