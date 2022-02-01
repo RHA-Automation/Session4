@@ -8,7 +8,7 @@
 
 ## Installation
 
-If you are not getting `ansible-navigator` from your AAP subscription, you can install it using `pip` (adjust to suit your needs):
+If you are not getting `ansible-navigator` from your AAP subscription (or even a developer subscription), you can install it using `pip` (adjust to suit your needs):
 
 ~~~bash
 python3.9 -m venv rha-navigator
